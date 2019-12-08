@@ -1,0 +1,28 @@
+MP5
+
+function mp5final
+n = (0:199);
+x = sin((3*pi.*n)/100);
+m = 1;
+while m ~= 199
+    if n(m) == 0
+        y(m) = -1.5.*(x(m+2));
+        
+    elseif n(m)>0 && n(m)<=198
+        y(m) = 0.5.*(x(m+1)) -0.5.*(x(m-1));
+    end
+    
+    if n(m) == 199
+        y(m) = 1.5.*(x(m)) -2.*(x(m-1)) + 0.5.*(x(m-2));
+        
+    end
+    m = m+1;
+end
+plot(x)
+hold on
+plot(y)
+ylabel('y axis')
+xlabel('x axis')
+grid on
+title('Graph for Problem 5')
+legend('n','y(m)')
